@@ -1,6 +1,7 @@
 import os
 
 class DataManager():
+"""TODO: make it read files in alphabetical order"""
 
 	def fileStreamer(self, filePath):
 		"""streams a file line by line"""
