@@ -3,13 +3,15 @@ import os
 class DataManager():
 
 	def fileStreamer(self, filePath):
-		"""This is a simple python generator"""
+		"""streams a file line by line"""
 		for line in open(filePath):
 			yield line
 
 	def streamFolder(self, folderPath):
-		"""given a folder path, start streaming file by file"""
+		"""given a folder path, start streaming file lines, file by file"""
 		dirContents =  os.listdir(folderPath)
 		for filePath in dirContents:
-			if filePath.endswith(".txt"):
-				yield self.fileStreamer(folderPath + filePath)
+			if not filePath.endswith(".txt"):
+				continue
+			for line in self.fileStreamer(folderPath + filePath):
+				yield line

@@ -6,11 +6,10 @@ class TestStreamFolder(TestCase):
 	def test_streamFolder(self):
 		manager = DataManager.DataManager()
 		wordList = []
-		for file in manager.streamFolder("./FolderToStream/"):
-			for line in file:
-				if line == "\n": continue
-				for word in str.rstrip(line).split():
-					wordList.append(word.lower())
+		for line in manager.streamFolder("./FolderToStream/"):
+			if line == "\n": continue
+			for word in str.rstrip(line).split():
+				wordList.append(word.lower())
 
 		#the answer list:
 		answerList = ["good", "morning", "sunshine.", "testing", "is", "fun!"
