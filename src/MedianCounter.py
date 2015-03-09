@@ -1,7 +1,6 @@
 import DataManager
 import bisect
 
-
 def proccessFolder(inputFolderPath, outPutFilePath):
 	medians = getOnlineMedians(inputFolderPath)
 	writeMediansToFile(medians, outPutFilePath)
@@ -13,9 +12,11 @@ def getOnlineMedians(inputFolderPath):
 	manager = DataManager.DataManager()
 	for line in manager.streamFolder(inputFolderPath):
 
-		#skip empty lines
-		if line == "": continue
 		newValue = len(line.split())
+
+		#skip empty lines
+		if newValue == 0: continue
+
 		median = updateMedians(newValue, streamedValues)
 		medians.append(median)
 
@@ -28,7 +29,6 @@ def updateMedians(newValue, oldValues):
 	unfortunately, insertion should be O(n), and thus does not scale so nicely.
 	Better methods exist, but they are significanlty more elaborated.
 	TODO: implement a faster online median algorithm"""
-
 	bisect.insort(oldValues, newValue)
 	return getMedian(oldValues)
 
