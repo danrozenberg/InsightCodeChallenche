@@ -5,8 +5,11 @@ def clearPunctuation(text):
 	We leave extra spaces because string.split() deals with them for us."""
 	"""TODO: deal with apostrophes better"""
 	for char in string.punctuation:
-		if char <> "'":
+		if char <> "'" and char	<> "-":
 			text = text.replace(char, " ")
+		if char == "-":
+			text = text.replace(char, "")
+
 	return text
 
 def clearText(text):
