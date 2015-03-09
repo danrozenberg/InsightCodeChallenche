@@ -8,9 +8,11 @@ class DataManager():
 		for line in open(filePath):
 			yield line
 
-	def streamFolder(self, folderPath):
+	def streamFolder(self, folderPath, sortFiles = False):
 		"""given a folder path, start streaming file lines, file by file"""
 		dirContents =  os.listdir(folderPath)
+		if sortFiles: dirContents.sort()
+
 		for filePath in dirContents:
 			if not filePath.endswith(".txt"):
 				continue
