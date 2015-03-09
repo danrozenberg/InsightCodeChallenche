@@ -23,8 +23,3 @@ class TestGetWordCount(TestCase):
 		for word1, word2 in zip(sorted(expected), sorted(createdDictionary)):
 			self.assertEquals(word1, word2, "Different words")
 			self.assertEquals(expected[word1], createdDictionary[word2], "Different counts")
-
-	def test_writeCountToFile(self):
-		createdDictionary = WordCounter.getWordCount("./ExampleFolder/")
-		WordCounter.writeCountToFile(createdDictionary, "./TestOutput/wc_result.txt")
-
