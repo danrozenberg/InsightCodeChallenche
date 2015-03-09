@@ -21,7 +21,7 @@ def getOnlineMedians(inputFolderPath):
 
 	return medians
 
-def updateMedians(newValue, oldValues)
+def updateMedians(newValue, oldValues):
 	"""Updates the oldValues list and returns the new median.
 	we are using a bisecting algorithm to keep the history array sorted.
 	This part should be O(log(n)), because it uses binary search.
