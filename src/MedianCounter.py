@@ -14,9 +14,6 @@ def getOnlineMedians(inputFolderPath):
 
 		newValue = len(line.split())
 
-		#skip empty lines
-		if newValue == 0: continue
-
 		median = updateMedians(newValue, streamedValues)
 		medians.append(median)
 
