@@ -51,5 +51,5 @@ def getMedian(valuesList):
 
 def writeMediansToFile(medians, outPutFilePath):
 	targetFile = file(outPutFilePath,'w')
-	for median in sorted(medians):
+	for median in medians:
 		targetFile.write(str(median) + "\n")
